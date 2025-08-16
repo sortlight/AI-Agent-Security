@@ -146,6 +146,38 @@ flowchart TD
 * Safe Execution: Protects external systems from harmful actions.
 
 
+```pgsql
+
++-------------------+
+| User Input        |
++-------------------+
+          |
+          v
++-------------------+
+| Input Sanitizer   |  ---> Blocks prompt injection patterns
++-------------------+
+          |
+          v
++-------------------+
+| LLM Engine        |
+| (with guardrails) |
++-------------------+
+          |
+          v
++-------------------+
+| Policy Layer      |  ---> Validates LLM outputs against safety rules
++-------------------+
+          |
+          v
++-------------------+
+| External Systems  |  ---> APIs, databases, code execution
++-------------------+
+
+
+
+```
+
+
 # Continuous Security Practices
 
   * Red-teaming & adversarial testing
